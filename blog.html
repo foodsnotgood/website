@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- eigen css als laatste inladen om evtl styling te kunnen overschrijven -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Blog about programming and more</title>
+</head>
+
+<body>
+
+
+
+    <!-- Navbar -->
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="d-flex flex-grow-1">
+            <span class="w-100 d-lg-none d-block">
+                <!-- hidden spacer to center brand on mobile --></span>
+            <a class="navbar-brand d-lg-inline-block ml-lg-2" href="index.html">
+                <img src="img/logo.svg" alt="JR logo">
+            </a>
+
+            <div class="w-100 text-right">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </div>
+        <div class="collapse navbar-collapse flex-grow-1 text-right" id="myNavbar">
+            <ul class="navbar-nav ml-auto flex-nowrap">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link m-2 menu-item nav-active">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="CV.html" class="nav-link m-2 menu-item active">CV</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link m-2 menu-item">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="blog.html" class="nav-link m-2 menu-item">Blog</a>
+                  </li>
+                <li class="nav-item navButton">
+                    <button type="button" class="btn btn-outline-primary btn-sm rounded-pill">Hire me!</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="row">
+        <div class="title col-12 d-flex justify-content-center">
+            <h2>Blog</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="title col-12 d-flex justify-content-center">
+            <h3 class="font-weight-lighter text-muted">Sharing my progress</h3>
+        </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="container mt-3 mb-3">
+
+      <div class="row">
+          <div class="col-md-6">
+            <div class="card" >
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Card title</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary rounded-pill">Go somewhere</a>
+                </div>
+              </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="card">
+                <img src="img/profiel.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">The journey so far</h5>
+                  <p class="card-text">It's been a year since i decided to enroll the evening program at <a href="www.thomasmore.be" target="blank">Thomas More</a> to study programming.
+                To be honest... </p>
+                  <a href="articles/thejourneysofar.html" class="btn btn-primary rounded-pill">Read article</a>
+                </div>
+              </div> 
+          </div>
+      
+    </div>
+     
+    </div>
+
+
+    <!-- Footer -->
+
+    <div class="row">
+        <footer>
+            <img src="img/logo.svg" alt="">Johannes Roeder &copy2021
+        </footer>
+    </div>
+
+
+    <!-- Javascript inladen, volgorde belangerijk, bootstrap maakt gebruik van popperjs, popper van jquery -->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

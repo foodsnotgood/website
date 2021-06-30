@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Economica&family=Syne:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;1,400;1,500&display=swap');
+
+
+
+$mainFont: 'Syne','Economica',sans-serif;
+$fontColor: #222222;
+
+$mainColor: #6D9AB3;
+$secColor:#B3946D;
+$accentColor: #FFA833;
+$pBackground: #FFA83320;
+$mainColorDark: #2A5166;
+$mainRadius: 5px;
+$mainPadding: 5px;
+$gridColor: #FFFFFF80;
+$shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+$desktop: 940px;
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+

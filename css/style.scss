@@ -1,0 +1,204 @@
+@import './var';
+
+$lg: 992px;
+
+@mixin large {
+    @media (min-width: #{$lg}) {
+        @content;
+    }
+}
+
+$md: 768px;
+
+@mixin medium {
+    @media (min-width: #{$md}) {
+        @content;
+    }
+}
+
+@keyframes sProgress{
+    from{width: 0%;}
+    to{width:100%;}
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+
+
+
+.navbar {
+    z-index: 2;
+    .navbar-brand {
+        img {
+            height: 30px;
+        }
+    }
+
+    .navButton {
+        .btn-sm {
+            margin-top: 12px;
+            margin-bottom: 12px;
+            margin-left: 3rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+    }
+}
+
+.vp {
+    height: 100vh;
+    width: 100vw;
+}
+
+.vp1 {
+    height: 91vh;
+
+    .title {
+        height: 30vh;
+        z-index: 1;
+
+        @include medium() {
+            height: 91vh;
+        }
+    }
+
+    .titleImg {
+
+        display: flex;
+        justify-content: center;
+
+        img {
+            z-index: 0;
+            height: 61vh;
+            margin-top: -100px;
+            max-width: 500px;
+            object-fit: cover;
+
+            @include medium() {
+                margin-top: 0;
+                height: 91vh;
+            }
+        }
+    }
+}
+
+.vp2 {
+    .card {
+        margin-top: 2rem;
+        height: 100%;
+        border: none;
+
+        @include medium() {
+            width: 40vw;
+        }
+
+        .card-img-top {
+            height: 50vh;
+            object-fit: cover;
+            object-position: center top;
+        }
+    }
+}
+
+.vp3 {
+    .carousel {
+
+        img {
+            height: 90vh;
+
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-caption {
+            background: #ebebeb;
+            background: radial-gradient(circle, #ebebebf1 0%, rgba(242, 242, 242, 0) 100%);
+            color: #535353;
+        }
+    }
+}
+
+
+.cvRow{
+    margin-top: 2rem;
+    .card{
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: relative;
+        }
+        .cardTitle{
+            position: absolute;
+            top: 30%;
+            background-color: #ffffff91;
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+           
+        }
+
+        .cardTitle2{
+            position: absolute;
+            top: 10%;
+            background-color: #ffffff91;
+            height: 4rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+           
+        }
+    }
+
+    .skills{
+        ul{
+            list-style-type: none;
+           li{
+               margin: 10px;
+               .progress{
+                   height: 1.5rem;
+                   .progress-bar{
+                       animation: sProgress 1s;
+                   }
+               }
+           }
+        }
+    }
+
+    .vertical{
+        border: none;
+        img{
+            height: 40%;
+        }
+    }
+}
+
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    width: 100vw;
+    background: #f7f7f7;
+
+    img{
+        height: 20px;
+        margin-right: 1rem;
+    }
+}
+
