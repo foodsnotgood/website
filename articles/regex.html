@@ -45,7 +45,7 @@
                     <a href="../CV.html" class="nav-link m-2 menu-item">CV</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link m-2 menu-item">Projects</a>
+                    <a href="../Portfolio.html" class="nav-link m-2 menu-item">Projects</a>
                 </li>
                 <li class="nav-item">
                     <a href="../blog.html" class="nav-link m-2 menu-item active">Blog</a>
@@ -66,19 +66,85 @@
 
     <!-- Cards -->
     <div class="container mt-3 mb-3">
-        <p><h6 class="text-muted text-right">3 july 2021</h6></p>
-        <p class="font-weight-bold">
-            Once you took a deep dive into programming, sooner or later you will have to deal with comparing strings to other strings or checking them against a certain pattern.
-            A great example would be a input form of some kind where the user has to enter his email-address. Unless we check if that input matches the pattern of an email-adress
-            anything could be entered here and would be stored away. 
-        </p>
+        <p><h6 class="text-muted text-right">11 july 2021</h6></p>
         <div class=" mt-3 mb-3">
             <!-- REPLACE IMG -->
-            <img src="../img/profiel.jpg" class="rounded img-fluid" alt="..."> 
+            <img src="../img/regex.jpg" class="rounded img-fluid" alt="..."> 
         </div>
-        <p>
-            So, instead of having to compare that input against all kinds of different types and shapes of email addresses.
+        <p class="font-weight-bold">
+            Once you took a deep dive into programming, sooner or later you will have to deal with comparing Strings to other Strings or checking them against a certain pattern.
+            A great example would be an input form of some kind where the user has to enter his email-address. Unless we check if that input matches the pattern of an email-adress
+            anything could be entered here and would be stored away. 
         </p>
+
+        <p>
+            So, instead of having to compare that input against all kind of different types and shapes of email addresses, we can use a regular expression to provide a pattern for us to compare against.
+            I must admit, the first time a regex was presented to me I thought somebody had just randomly pressed some keys and somehow got away with it. But there is logic in it somewhere.
+        </p>
+        <p>
+            In this article I will do my best to explain the basics of regular expressions. And I expect that once you understand these it will be easier to google any information that you might be missing 
+            at some point. 
+        </p>
+        <p>
+            To start of, when we want to write a regular expression, we do not write it like a String using quotes (i.e. <code>'some expression here'</code>). Instead, we will often need to use forward slashes
+            like so: <code>/some expression here/</code><br>
+            Though this depends on the language you are writing in so be sure to look that up first. Important here is to remember that a regular expression is NOT a String.
+        </p>
+        <b>Special meaning symbols</b>
+        <p>
+            Then we have some symbols that have a special meaning in regex.
+            <ul>
+                <li>
+                    The most commonly used examples are the dot <code>.</code> (meaning any character or symbol except a 
+                    new line <code>\n</code>),
+                </li>
+                <li>
+                    the caret <code>^</code> (which signals the beginning of an expression),
+                </li>
+                <li>
+                    and the dollar sign <code>$</code> (standing for the end of an expression).
+                </li>
+            </ul>
+            This brings me right to the next point. Say you want to implement one of those symbols (and there are a few more) in your regular expression to search for username that has to have 
+            a dot (<code>.</code>) somewhere in the middle, you need to use a backslash in combination with the desired symbol (i.e <code>\.</code> will literally look for a dot and ignore everything else whereas 
+            <code> . </code> will allows any character or symbol to be matched). To illustrate the expression <code>/.\../</code> will match anything like <i> 'a.a'</i>, <i>' .d'</i> or even <i>'...'</i> . <br>
+            I know weird, right? But when you break it down it makes sense: First the forward slashes <code>/   /</code> tell the computer that it's dealing with a regular expression.
+            Then a simple dot <code>.</code> allows for any character or symber, followed by a backslash with a dot <code>\.</code> meaning literally a dot. Finished of by another dot <code>.</code>
+            which again is our wildcard.
+        </p>
+        <b>The use of brackets</b>
+        <p>
+            Putting arguments inside of brackets lets us form a group in order to find anyone of them: 
+            <ul>
+                <li><code>[abc]</code> will match any character <i>'a'</i>, <i>'b'</i> or <i>'c'</i></li>
+            </ul>
+            Likewise you also ask to match any character within a range: 
+            <ul>
+                <li><code>[a-f]</code> will match any character from <i>'a'</i> to <i>'f'</i> in the alphabet</li>
+            </ul>
+            Beware that this is case sensitive.
+            So if you want to match any alphabetic character, no matter the case, you could write <code>[a-zA-Z]</code>. In the case of Javascript you can shorten this expression by appending 
+            <code>i</code> meaning caseinsesitive (<code>/[a-z]/i</code>)
+        </p>
+        <b>Quantification</b>
+        <p>
+            Of course everything up until now only  matches one given letter of symbol. But often times we'd want to tell the program to match multiple characters. Like for example to get back
+            to our email example we do not know how many characters it will contain. In order o achieve this we have a few different options:
+            <ul>
+                <li><code>+</code> means we are looking for one or more occurences: <code>/[a-zA-Z]+/</code> will match <i>'abc'</i> or even <i>'thisisastring'</i>. Note that this expression does not allow for spaces</li>
+                <li><code>?</code> will match 0 or 1 occurence: <code>/An[dy]?/</code> matches <i>'An'</i>, <i>'And'</i> or <i>'Any'</i></li>
+                <li><code>*</code> will look for 0 or more occurences of the expression: <code>/An[dy]/</code> matches <i>'An'</i>, <i>'And'</i>, <i>'Any'</i> OR <i>'Andy'</i> (see the difference?)</li>
+                <li><code>{n, n}</code> will look for a specific number (n) of occurences: <code>{3}</code> looks for exactly 3 matches, <code>{3,}</code> means 3 or more and finally 
+                {3,6} will match against anything between 3 and 6 matches. I.e. <code>/[a-z]{2,4}/</code> will match <i>'andy'</i>, <i>'zoo'</i> or <i>'an'</i> but not <i>'bloom'</i>(to many characters)</li>
+            </ul>
+        </p>
+        <p>
+            So you see once you start breaking it down it kind of starts to make sense and I believe there is true coding power hidden in the ability to use and formulate regular expressions.
+            Keep in mind though that what I described here is merely an introduction to get you (and myself) started. But hey, isn't that why we learned how to google right about that time when we started
+            stacking lego blocks? (Maybe a topic for another post here later on...) Anyhow here's a link to a very useful website to text and learn regex:
+            <a href="https://regexr.com/" target="blank">Regexr</a>, be sure to check that out. I used it all the time to test the stuff I was writing about in this article. 
+        </p>
+        <p>Have fun with it!</p>
     </div>
 
     <!-- Footer -->
