@@ -1,3 +1,6 @@
-var date =  new Date(), year = date.getFullYear(), bday= 1988, age = year - bday;
+const myBirthday = new Date("25 december 1988");
+const today = new Date();
 
-document.getElementById("age").innerHTML = age;
+const calcAge = (tday, bday) => Math.floor((tday - bday) / 31536000000);
+
+document.getElementById("age").innerHTML = calcAge(today, myBirthday);

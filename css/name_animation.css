@@ -1,0 +1,26 @@
+#under_name {
+  opacity: 0;
+  transition: ease-out 3s;
+}
+
+@keyframes fromTop {
+  from {
+    top: -5rem;
+    opacity: 0;
+  }
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+@keyframes fromBottom {
+  from {
+    top: 5rem;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
