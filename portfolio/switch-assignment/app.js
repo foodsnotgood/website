@@ -13,6 +13,10 @@ const cameraForm = document.querySelector('.camera-form');
 const lensForm = document.querySelector('.lens-form');
 const msg = document.querySelector('.msg');
 
+function delay(time) {
+  return new Promise(resolve => setTimeout(resolve, time));
+}
+
 const hideForm = () => {
   formContainer.classList.add('d-none');
   cameraForm.classList.add('d-none');
@@ -49,7 +53,6 @@ const createList = node => {
 };
 
 const createCameraCard = node => {
-  console.log(node.innerHTML);
   const cardHtml = `
   <div class="card col-lg-3 shadow">
     <div class="card-body">
@@ -127,7 +130,6 @@ addCameraForm.addEventListener('submit', async function (e) {
   emptyInputFields(this);
   fetchXmlData();
   showResponse(response);
-  console.log(response);
 });
 
 addLensForm.addEventListener('submit', async function (e) {
@@ -141,12 +143,7 @@ addLensForm.addEventListener('submit', async function (e) {
   emptyInputFields(this);
   fetchXmlData();
   showResponse(response);
-  console.log(response);
 });
-
-function delay(time) {
-  return new Promise(resolve => setTimeout(resolve, time));
-}
 
 plusBtn.addEventListener('mouseenter', e => {
   addCameraBtn.classList.remove('hidden-btn');
